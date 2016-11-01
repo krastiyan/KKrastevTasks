@@ -11,7 +11,6 @@ namespace KKrastevTasks
         static void Main(string[] args)
         {
             //Careate 2-dimencional array as defined by user
-            //Initialize array with user input values
             //Initialize array by default with integers from 0 to what's needed
             //Let user specify which array member to increment
 
