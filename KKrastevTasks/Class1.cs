@@ -107,30 +107,120 @@ namespace KKrastevTasks
 
     //resolving task 5 - to be completed...
 
+        //To start task 5 you should change main method class to be Class3
+
     public class CourseAttandee : Person
     {
         protected static int mStaticUniqueIdentifier = 0;
 
-        public int incrementUniiqueIdenifier()
+        public static int IncrementUniiqueIdenifier()
         {
-            return ++mStaticUniqueIdentifier;
+            return mStaticUniqueIdentifier++;
         }
 
         //a public property
-        public int UniqueIdetifier { get; }
+        public int UniqueIdetifier { get; } = IncrementUniiqueIdenifier();
+
+        protected Course mAttendedCourse = null;
+        public Course AttendedCourse
+        {
+            get { return mAttendedCourse; }
+            set
+            {
+                if (AttendedCourse != null)
+                {
+                    //Console.WriteLine("Student is already signed up");
+                    throw new InvalidOperationException("Student is already signed up");
+                }
+                else
+                {
+                    mAttendedCourse = value;
+                }
+            }
+        }
 
         public CourseAttandee(string nameInput, int ageInput) : base(nameInput, ageInput)
         {
-            UniqueIdetifier = incrementUniiqueIdenifier();
+            //UniqueIdetifier = IncrementUniiqueIdenifier();
+            //initialization moved to property definition
         }
-    }
+
+        public override string ToString()
+        {
+            return Name;
+        }
+        
+    }//CourseAttandee class
 
     public class Course
     {
         public int CourseCapacity {get; set;}
-        public List<CourseAttandee> attendees { get; set; }
 
-    }
+        protected List<CourseAttandee> mAttendees;
+        public List<CourseAttandee> Attendees
+        {
+            get
+            {
+                return mAttendees;
+            }
+            set
+            {
+                if (Attendees == null)
+                {
+                    mAttendees = new List<CourseAttandee>(value);
+                }
+                else if (Attendees.Count == CourseCapacity)
+                {
+                    Console.WriteLine($"\nCourse is full - maximum capacity of {CourseCapacity} already reached.\n");
+                }
+                else
+                {
+                    mAttendees.AddRange(value);
+                }
+            }
+        }
+
+        protected static int mStaticUniqueIdentifier = 0;
+
+        public static int IncrementUniiqueIdenifier()
+        {
+            return mStaticUniqueIdentifier++;
+        }
+
+        //a public property
+        public int UniqueIdetifier { get; } = IncrementUniiqueIdenifier();
+
+        public string CourseName { get; set; }
+
+        public int DurationInHoursePerDay { get; set; }
+
+        public Course(string nameInput, int maxCapacity, int hoursPerDay)
+        {
+            CourseName = nameInput;
+            CourseCapacity = maxCapacity;
+            DurationInHoursePerDay = hoursPerDay;
+        }
+
+        public override string ToString()
+        {
+            return CourseName;
+        }
+
+    }//Course class
+
+    public class Academy
+    {
+        public List<Course> AllCoursesList { get; set; }
+        public List<CourseAttandee> AllStudentsList { get; set; }
+
+        public bool SignUp(CourseAttandee student, Course toCourse)
+        {
+            //TODO: Add in Course - signUpAStident method
+            //TODO: Call signUpForCourse method in CourseAttendee
+            //....
+            return false;
+        }
+    }//Academy class
 
     public class Class3
     {
