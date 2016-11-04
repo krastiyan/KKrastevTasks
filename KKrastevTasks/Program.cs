@@ -8,7 +8,7 @@ namespace KKrastevTasks
 {
     class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
             //Careate 2-dimencional array as defined by user
             //Initialize array by default with integers from 0 to what's needed
