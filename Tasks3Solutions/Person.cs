@@ -28,7 +28,7 @@ namespace Tasks3Solutions
 
         public Person(string givenName, int personAge) : this(givenName)
         {
-            if (personAge < 0) throw new InvalidOperationException($"Ivalid age provided: {personAge}");
+            if (personAge < 0) throw new PersonAgeException($"Ivalid age provided: {personAge}");
             age = personAge;
 
         }

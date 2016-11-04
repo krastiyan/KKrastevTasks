@@ -8,5 +8,6 @@ namespace Tasks3Solutions
 {
     class PersonAgeException:Exception
     {
+        public PersonAgeException(string message) : base(message) { }
     }
 }

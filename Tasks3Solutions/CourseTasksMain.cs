@@ -37,9 +37,9 @@ namespace Tasks3Solutions
                 {
                     case 0: { Program.Main(null); } break;
                     case 1: { Console.WriteLine("\n\n\tNothihng to start here - check Person.cs in source code :)"); } break;
-                    case 2: { Class1.Main(null); } break;
-                    case 4: { Class2.Main(null); } break;
-                    case 5: { Class3.Main(null); } break;
+                    case 2: { Class1_Task2.Main(null); } break;
+                    case 4: { Class2_Task4.Main(null); } break;
+                    case 5: { Class3_Task5.Main(null); } break;
                     case 6: { CopmlexTaskMain.Main(null); } break;
                     default:
                         {

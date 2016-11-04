@@ -15,11 +15,11 @@ namespace Tasks3Solutions.Education
         {
             if (aStudent == null)
             {
-                throw new InvalidOperationException("Student does not exist");
+                throw new StudentNotFound("Student does not exist");
             }
             if (toCourse == null)
             {
-                throw new InvalidOperationException("Course does not exist");
+                throw new CourseNotFound("Course does not exist");
             }
             try
             {
@@ -27,6 +27,10 @@ namespace Tasks3Solutions.Education
                 toCourse.Attendees = new List<CourseAttandee>() { aStudent };
                 Console.WriteLine($"Succesfully signed up {aStudent} to {toCourse}");
                 return true;
+            }
+            catch(StudentIsBusy e)
+            {
+                Console.WriteLine($"\n\tThrown an {e.GetType()} Exception saying: {e.Message}\n"+e.StackTrace);
             }
             catch (Exception e)
             {

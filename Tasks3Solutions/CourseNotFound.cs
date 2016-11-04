@@ -8,7 +8,6 @@ namespace Tasks3Solutions
 {
     class CourseNotFound:Exception
     {
-        public CourseNotFound(string message):base(message)
-        {}
+        public CourseNotFound(string message) : base(message) { }
     }
 }

@@ -8,6 +8,6 @@ namespace Tasks3Solutions
 {
     class StudentNotFound:Exception
     {
-
+        public StudentNotFound(string message) : base(message) { }
     }
 }

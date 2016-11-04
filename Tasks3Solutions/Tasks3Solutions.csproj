@@ -47,9 +47,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Academy.cs" />
-    <Compile Include="Class1.cs" />
-    <Compile Include="Class2.cs" />
-    <Compile Include="Class3.cs" />
+    <Compile Include="Class1_Task2.cs" />
+    <Compile Include="Class2_Task4.cs" />
+    <Compile Include="Class3_Task5.cs" />
     <Compile Include="AcademyHelper.cs" />
     <Compile Include="CourseNotFound.cs" />
     <Compile Include="StudentNotFound.cs" />

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Tasks3Solutions
 {
-    public class Class1
+    public class Class1_Task2
     {
         public static void Main(string[] args)
         {

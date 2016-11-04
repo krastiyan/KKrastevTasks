@@ -8,5 +8,6 @@ namespace Tasks3Solutions
 {
     class StudentIsBusy:Exception
     {
+        public StudentIsBusy(string message) : base(message) { }
     }
 }

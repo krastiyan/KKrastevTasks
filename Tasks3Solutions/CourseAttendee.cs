@@ -27,7 +27,7 @@ namespace Tasks3Solutions.Education
                 if (value != null && AttendedCourse != null)
                 {
                     //Console.WriteLine($"\n\tAttendedCourse already has value: {AttendedCourse} and its field has value {mAttendedCourse}");
-                    throw new InvalidOperationException("Student is already signed up for another course");
+                    throw new StudentIsBusy("Student is already signed up for another course");
                 }
                 else
                 {

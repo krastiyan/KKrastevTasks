@@ -7,7 +7,7 @@ using Tasks3Solutions.Education;
 
 namespace Tasks3Solutions
 {
-    public class Class3
+    public class Class3_Task5
     {
         public static void Main(string[] args)
         {
@@ -86,7 +86,18 @@ namespace Tasks3Solutions
                     continue;
                 }
 
-                StudentOnFocus = new CourseAttandee(name, firstInt);
+                try
+                {
+                    StudentOnFocus = new CourseAttandee(name, firstInt);
+                }
+                catch (PersonAgeException e)
+                {
+                    Console.WriteLine($"\n\tThrown PersonAgeException Error: {e.Message}\n{e.StackTrace}");
+                    numberToEnter++;
+                    Console.WriteLine("\n\n\tCouldn't parse all data entered for course\n\t - Check messages above and reenter values again ;)");
+                    continue;
+                }
+
                 TheAcademy.AllStudentsList.Add(StudentOnFocus);
                 Console.WriteLine($"Successfully created Student {StudentOnFocus.UniqueIdetifier} with data");
                 Console.WriteLine($"\tname: {StudentOnFocus.Name}\n\thaving age {StudentOnFocus.age}");
@@ -95,7 +106,8 @@ namespace Tasks3Solutions
             string userInput, quitCommand = "quit";
             do
             {
-                Console.WriteLine("\nSign up student for course using format: studentID courseID\n\t_hint: Enter CourseID*-1 to UnSignUp student from it.");
+                Console.WriteLine("\nSign up student for course using format: studentID courseID"+
+                    "\n\t_hint: Type StudentID CourseID remove to UnSignUp student from defined course.");
                 Console.Write("\n\t\t/Type quit to exit/:");
                 userInput = Console.ReadLine();
                 if (!userInput.Equals(quitCommand))
@@ -141,9 +153,21 @@ namespace Tasks3Solutions
                             TheAcademy.SignUp(StudentOnFocus, CourseOnFocus);
                         }
                     }
+                    catch (StudentIsBusy e)
+                    {
+                        Console.WriteLine($"\n\tThrown {e.GetType()} Error: {e.Message}\n{e.StackTrace}");
+                    }
+                    catch (StudentNotFound e)
+                    {
+                        Console.WriteLine($"\n\tThrown {e.GetType()} Error: {e.Message}\n{e.StackTrace}");
+                    }
+                    catch (CourseNotFound e)
+                    {
+                        Console.WriteLine($"\n\tThrown {e.GetType()} Error: {e.Message}\n{e.StackTrace}");
+                    }
                     catch (Exception e)
                     {
-                        Console.WriteLine($"\n\tError: {e.Message}\n{e.StackTrace}");
+                        Console.WriteLine($"\n\tThrown an unknown Error: {e.Message}\n{e.StackTrace}");
                     }
 
                 }//if to create new Person
