@@ -14,12 +14,13 @@ namespace Tasks3Solutions
             do
             {
                 Console.Clear();
-                Console.WriteLine("\n\t\tChoose task to start between");
+                Console.WriteLine("Tasks3Solutions project started \n\t\tChoose task to start between");
                 Console.WriteLine("\t0 - Data structures task"+
                 "\n\t1 - Task #1 from Tasks2.docx"+
                 "\n\t2 - Task #2 from Tasks2.docx"+
                 "\n\t4 - Task #4 from Tasks2.docx"+
                 "\n\t5 - Task #5 from Tasks2.docx"+
+                "\n\t6 - Task #2 from Tasks3.docx" +
                 "\n\t... almost anything else will be ignored");
                 Console.Write("  /Type quit to exit/:");
                 userInput = Console.ReadLine();
@@ -39,6 +40,7 @@ namespace Tasks3Solutions
                     case 2: { Class1.Main(null); } break;
                     case 4: { Class2.Main(null); } break;
                     case 5: { Class3.Main(null); } break;
+                    case 6: { CopmlexTaskMain.Main(null); } break;
                     default:
                         {
                             Console.WriteLine($"\n\n\tCan't recognize choise entered: {userInput} - try again ;-)");

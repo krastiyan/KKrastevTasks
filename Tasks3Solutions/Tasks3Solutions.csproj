@@ -50,6 +50,9 @@
     <Compile Include="Class1.cs" />
     <Compile Include="Class2.cs" />
     <Compile Include="Class3.cs" />
+    <Compile Include="AcademyHelper.cs" />
+    <Compile Include="CopmlexTaskMain.cs" />
+    <Compile Include="Complex.cs" />
     <Compile Include="Course.cs" />
     <Compile Include="CourseAttendee.cs" />
     <Compile Include="CourseTasksMain.cs" />
