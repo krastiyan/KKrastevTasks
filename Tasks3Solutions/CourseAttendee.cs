@@ -36,11 +36,10 @@ namespace Tasks3Solutions.Education
                 }
             }
         }
-        public CourseAttandee(string nameInput, int ageInput) : base(nameInput, ageInput)
-        {
-            //UniqueIdetifier = IncrementUniiqueIdenifier();
-            //initialization moved to property definition
-        }
+
+        public CourseAttandee(string nameInput) : base(nameInput) { }
+
+        public CourseAttandee(string nameInput, int ageInput) : base(nameInput, ageInput) { }
 
         public override string ToString()
         {

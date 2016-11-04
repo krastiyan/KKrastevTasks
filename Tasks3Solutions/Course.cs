@@ -66,6 +66,9 @@ namespace Tasks3Solutions.Education
 
         public int DurationInHoursePerDay { get; set; }
 
+        //Constructor added for Problem4 in Tasks3.docx
+        public Course(string nameInput, int maxCapacity) : this(nameInput, maxCapacity, 4) { }
+
         public Course(string nameInput, int maxCapacity, int hoursPerDay)
         {
             CourseName = nameInput;

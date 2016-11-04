@@ -41,6 +41,7 @@ namespace Tasks3Solutions
                     case 4: { Class2_Task4.Main(null); } break;
                     case 5: { Class3_Task5.Main(null); } break;
                     case 6: { CopmlexTaskMain.Main(null); } break;
+                    case 7: { Problem4GradesTask.Main(null); } break;
                     default:
                         {
                             Console.WriteLine($"\n\n\tCan't recognize choise entered: {userInput} - try again ;-)");

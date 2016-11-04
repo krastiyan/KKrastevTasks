@@ -10,6 +10,7 @@ namespace Tasks3Solutions.Education
     {
         public List<Course> AllCoursesList { get; set; } = new List<Course>();
         public List<CourseAttandee> AllStudentsList { get; set; } = new List<CourseAttandee>();
+        public List<StudentCourseTask> AcademyHistory { get; set; } = new List<StudentCourseTask>();
 
         public bool SignUp(CourseAttandee aStudent, Course toCourse)
         {

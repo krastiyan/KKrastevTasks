@@ -47,6 +47,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Academy.cs" />
+    <Compile Include="Problem4GradesTask.cs" />
+    <Compile Include="StudentCourseTask.cs" />
     <Compile Include="Class1_Task2.cs" />
     <Compile Include="Class2_Task4.cs" />
     <Compile Include="Class3_Task5.cs" />
