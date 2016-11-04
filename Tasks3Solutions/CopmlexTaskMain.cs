@@ -55,10 +55,10 @@ namespace Tasks3Solutions
                 switch (userInput)
                 {
                     case addCommand:
-                        Console.WriteLine("Adding the 2 complexes resulted in:\n"+(f1stComplex+s2ndComplex));
+                        Console.WriteLine("\nAdding the 2 complexes resulted in:\n"+(f1stComplex+s2ndComplex));
                         break;
                     case subtractCommand:
-                        Console.WriteLine("Subtracting the 2 complexes resulted in:\n" + (f1stComplex - s2ndComplex));
+                        Console.WriteLine("\nSubtracting the 2 complexes resulted in:\n" + (f1stComplex - s2ndComplex));
                         break;
                     default:
                         Console.WriteLine("\n\tUnknown command entered - try again ;)\n\n");

@@ -51,6 +51,10 @@
     <Compile Include="Class2.cs" />
     <Compile Include="Class3.cs" />
     <Compile Include="AcademyHelper.cs" />
+    <Compile Include="CourseNotFound.cs" />
+    <Compile Include="StudentNotFound.cs" />
+    <Compile Include="StudentIsBusy.cs" />
+    <Compile Include="PersonAgeException.cs" />
     <Compile Include="CopmlexTaskMain.cs" />
     <Compile Include="Complex.cs" />
     <Compile Include="Course.cs" />

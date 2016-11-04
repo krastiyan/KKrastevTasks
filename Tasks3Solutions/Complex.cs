@@ -13,17 +13,8 @@ namespace Tasks3Solutions
 
         public override string ToString()
         {
-            string addedString = (Imaginary == 0) ?"": " "+GetImaginarySign()+" "+Imaginary+"i";
-            return $"{Real}{addedString}";
-        }
-
-        private char GetImaginarySign()
-        {
-            if (Imaginary < 0)
-            {
-                return '-';
-            }
-            return '+';
+            string addedString = (Imaginary == 0) ?"": ((Imaginary<0)?" ":" + ")+Imaginary+"i";
+            return Real+addedString;
         }
 
         public Complex(int RealPart, int ImaginaryyPart)
