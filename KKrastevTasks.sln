@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tasks3Solutions", "Tasks3So
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApplication1", "ConsoleApplication1\ConsoleApplication1.csproj", "{8320DDB1-1665-43D1-83A0-7604E6CC0D8D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DelegatesAndEnumerations", "DelegatesAndEnumerations\DelegatesAndEnumerations.csproj", "{36AC4D54-10C2-4C03-9A89-2CFC36D5C9F0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{8320DDB1-1665-43D1-83A0-7604E6CC0D8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8320DDB1-1665-43D1-83A0-7604E6CC0D8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8320DDB1-1665-43D1-83A0-7604E6CC0D8D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36AC4D54-10C2-4C03-9A89-2CFC36D5C9F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36AC4D54-10C2-4C03-9A89-2CFC36D5C9F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36AC4D54-10C2-4C03-9A89-2CFC36D5C9F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36AC4D54-10C2-4C03-9A89-2CFC36D5C9F0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
