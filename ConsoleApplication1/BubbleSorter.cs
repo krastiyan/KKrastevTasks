@@ -10,7 +10,8 @@ namespace ConsoleApplication1
     {
         public override int[] Sort(int[] arrayToSrt)
         {
-            throw new NotImplementedException();
+            int[] result = base.CopyIntArray(arrayToSrt);
+            return result.OrderBy(x => x).ToArray();
         }
     }
 }
