@@ -13,7 +13,7 @@ namespace ConsoleApplication1
             Console.WriteLine("Enter an int array in format element;element;...;element");
             string[] input = Console.ReadLine().Split(';');
             int[] intArray = new int[input.Length];
-            for (int i=0; i < input.Length ;i++) 
+            for (int i = 0; i < input.Length; i++)
             {
                 intArray[i] = int.Parse(input[i]);
             }

@@ -18,7 +18,7 @@ namespace ConsoleApplication1
         }
         public static void PrintArrayInConsole(int[] printed)
         {
-            foreach (int el in printed) Console.Write(el+";");
+            foreach (int el in printed) Console.Write(el + ";");
         }
     }
 }

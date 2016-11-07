@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace ConsoleApplication1
 {
-    class BubbleSorter
+    class BubbleSorter : Sorter
     {
+        public override int[] Sort(int[] arrayToSrt)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
