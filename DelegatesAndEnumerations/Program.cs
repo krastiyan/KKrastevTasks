@@ -10,7 +10,7 @@ namespace DelegatesAndEnumerations
     {
         //Enumerable choises = new Enumerable() { };
 
-         static enum Operations
+         enum Operations
         {
             add,
             sub,
