@@ -12,11 +12,7 @@ namespace GenericMyListWithArray
         protected int LastFilledElementIndex = -1;
         protected T[] elementsList;
 
-        //public MyListEventHandler OnListChange = new MyListEventHandler(MyListEventHandler.OnAddHandler, MyListEventHandler.OnRemoveHandler);
         public MyListEventHandler<T> OnListChange = new MyListEventHandler<T>(GenericMyHandlersImplementations<T>.OnAddHandler, GenericMyHandlersImplementations<T>.OnRemoveHandler);
-            //(typeof(T).Equals(typeof(int)))
-            //?new MyListEventHandler<T>(GenericMyHandlersImplementations<int>.OnAddHandler, GenericMyHandlersImplementations<int>.OnRemoveHandler)
-            //:new MyListEventHandler<T>(GenericMyHandlersImplementations<string>.OnAddHandler, GenericMyHandlersImplementations<string>.OnRemoveHandler);
 
         public MyGenericListClass():this(2)
         { }

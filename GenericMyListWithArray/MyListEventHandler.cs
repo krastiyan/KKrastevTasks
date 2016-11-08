@@ -31,14 +31,5 @@ namespace GenericMyListWithArray
             OnRemove(value);
         }
 
-        //public static void OnAddHandler(string whatToType)
-        //{
-        //    Console.WriteLine($"\n\tTyping in OnAddHandler: {whatToType}\n");
-        //}
-
-        //public static void OnRemoveHandler(string whatToType)
-        //{
-        //    Console.WriteLine($"\n\tTyping in OnRemoveHandler: {whatToType}\n");
-        //}
     }//Event handler class
 }
