@@ -70,10 +70,12 @@ namespace GenericMyListWithArray
                 || removedElementIndex > LastFilledElementIndex)
             {
                 Console.WriteLine($"\n\tERROR: Provided index {removedElementIndex} has invalid valkue:\n\t\tis <0,\n\t\tis > list capacityy,\n\t\tor is > index of LastElementWithValue");
+                return false;
             }
             if(LastFilledElementIndex<0)
             {
                 Console.WriteLine("\n\tNo element present in list!!");
+                return false;
             }
 
             T[] result = new T [elementsList.Length-1];
