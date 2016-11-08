@@ -29,6 +29,11 @@ namespace GenericMyListWithArray
             myList.Remove(3);
             Console.WriteLine("\n\n\tmyList is now:\n" + myList);
 
+            foreach(int element in myList)
+            {
+                Console.WriteLine("\tPrinting next myList element:"+element);
+            }
+
         }
     }
 }

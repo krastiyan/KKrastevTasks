@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace GenericMyListWithArray
 {
-    public class MyGenericListClass<T>
+    public class MyGenericListClass<T> : IEnumerable<T>
     {
         protected int InitialCapacity;
         protected int LastFilledElementIndex = -1;
@@ -125,5 +126,18 @@ namespace GenericMyListWithArray
             }
             return builder.ToString();
         }
-    }
+
+        public IEnumerator<T> GetEnumerator()
+        {
+            for(int i=0; i<= LastFilledElementIndex; i++)
+            {
+                yield return elementsList[i];
+            }
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            throw new NotImplementedException();
+        }
+    }//class
 }
