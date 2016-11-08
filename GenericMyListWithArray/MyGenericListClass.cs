@@ -89,7 +89,7 @@ namespace GenericMyListWithArray
             }
 
             elementsList = result;
-
+            LastFilledElementIndex--;
             return true;
         }
         
