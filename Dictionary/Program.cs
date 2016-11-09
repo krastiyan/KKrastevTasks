@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,7 +13,15 @@ namespace Dictionary
         {
             Dictionary<string, int> textDictionary = new Dictionary<string, int>();
             Console.WriteLine("Enter your text:");
-            string[] textInput = Console.ReadLine().Split(new string[] { " ", ",", ".", "!", "?", ";", ":", "(", ")", "[", "]", "<", ">"}, StringSplitOptions.RemoveEmptyEntries);
+            string textInFile;
+            var fileStream = new FileStream(@"C:\Users\Student\Documents\inputFile.txt", FileMode.Open, FileAccess.Read);
+            using (var streamReader = new StreamReader(fileStream, Encoding.UTF8))
+            {
+                textInFile = streamReader.ReadToEnd();
+            }
+
+            string[] textInput = textInFile.Split(new string[] { " ", ",", ".", "!", "?", ";", ":", "(", ")", "[", "]", "<", ">", "\n", "\t", "\r", "{", "}", "\"", "\'", "\\", "/" }, StringSplitOptions.RemoveEmptyEntries);
+            //Console.ReadLine().Split(new string[] { " ", ",", ".", "!", "?", ";", ":", "(", ")", "[", "]", "<", ">"}, StringSplitOptions.RemoveEmptyEntries);
             for (int i=0;i<textInput.Length;i++)
             {
                 if (textDictionary.ContainsKey(textInput[i]))
