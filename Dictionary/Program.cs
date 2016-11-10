@@ -35,6 +35,8 @@ namespace Dictionary
             }
 
             Console.WriteLine("\nDone reading\n");
+
+
             foreach(string key in textDictionary.Keys)
             {
                 Console.WriteLine($"Number of mentions of {key} = {textDictionary[key]}");
