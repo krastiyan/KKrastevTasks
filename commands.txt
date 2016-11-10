@@ -1,0 +1,7 @@
+﻿find("Mimi");// – display all matching records by given name (first, middle, last or nickname)
+find("Daniela Ivanova", Karnobat);// – display all matching records by given name and town
+serialize("Bat Gancho", "BatGancho.s.Data.txt", "XML");// – serializes all records with the given name into a file with the given filename using the given serialization type (XML, JSON)
+serialize("Kireto", "Kireto.s.JSON.txt", "JSON");// – serializes all records with the given name into a file with the given filename using the given serialization type (XML, JSON)
+Add("Pencho Ganchev Tenchevski", "Chuchulovitsa", "0845/6458588");// – adds the new record in the memory
+Add("Ivan Petrov Todorov", "Pernik", "03898998998", "C:\Users\Student\Desktop\Venci\ConsoleApplication1\KKrastevTasks");// – adds the new record in the memory (optional: add it also to the phone.txt) - using intoFilePath parameter
+serialize("Pencho Ganchev", "Pencho.Ganchev.s.JSON.txt", "JSON");// – serializes all records with the given name into a file with the given filename using the given serialization type (XML, JSON)

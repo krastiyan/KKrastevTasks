@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dictionary", "Dictionary\Di
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FilesAndXMLsStudentsFactory", "FilesAndXMLsStudentsFactory\FilesAndXMLsStudentsFactory.csproj", "{293C17DB-9528-4BFD-81DE-2BD3DADED993}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoneBookApp", "ConsoleApplication2\PhoneBookApp.csproj", "{ABA2C2BC-38D2-48BE-897C-85B37C8C857F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +59,10 @@ Global
 		{293C17DB-9528-4BFD-81DE-2BD3DADED993}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{293C17DB-9528-4BFD-81DE-2BD3DADED993}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{293C17DB-9528-4BFD-81DE-2BD3DADED993}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ABA2C2BC-38D2-48BE-897C-85B37C8C857F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ABA2C2BC-38D2-48BE-897C-85B37C8C857F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ABA2C2BC-38D2-48BE-897C-85B37C8C857F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ABA2C2BC-38D2-48BE-897C-85B37C8C857F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

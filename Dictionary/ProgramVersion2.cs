@@ -14,7 +14,7 @@ namespace Dictionary
             Console.WriteLine("Enter file path to read from:");
             string inputFilePath = Console.ReadLine();
 
-            Dictionary<string, int> dictionary = readFileINtoDictionary(inputFilePath);
+            Dictionary<string, int> dictionary = readFileIntoDictionary(inputFilePath);
 
             Console.WriteLine("Enter file path to write result into:");
             string outputFilePath = Console.ReadLine();
@@ -22,7 +22,7 @@ namespace Dictionary
             Console.WriteLine("Writing result into output file {0}",(result) ?"succeeded":"failed");
         }
 
-        public static Dictionary<string, int> readFileINtoDictionary(string filePath)
+        public static Dictionary<string, int> readFileIntoDictionary(string filePath)
         {
             Dictionary<string, int> textDictionary = new Dictionary<string, int>();
             string textInFile;
