@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DirectedGraph xmlns="http://schemas.microsoft.com/vs/2009/dgml">
+  <Nodes>
+    <Node Id="(@1 Namespace=PhoneBookApp Type=PhoneBookManipulator)" Category="CodeSchema_Class" Bounds="-10070.48,-9982,166.216666666667,26" CodeSchemaProperty_IsPublic="True" CommonLabel="PhoneBookManipulator" Icon="Microsoft.VisualStudio.Class.Public" Label="PhoneBookManipulator" SourceLocation="(Assembly=file:///C:/Users/Student/Desktop/Venci/ConsoleApplication1/KKrastevTasks/ConsoleApplication2/PhoneBookManipulator.cs StartLineNumber=9 StartCharacterOffset=17 EndLineNumber=9 EndCharacterOffset=37)" UseManualLocation="True" />
+    <Node Id="(@2 Namespace=PhoneBookUnitTestProject Type=PhoneBookManipulatorUnitTests)" Category="CodeSchema_Class" Bounds="-9917.6,-9859.2,215.04,26" CodeSchemaProperty_IsPublic="True" CommonLabel="PhoneBookManipulatorUnitTests" Icon="Microsoft.VisualStudio.Class.Public" Label="PhoneBookManipulatorUnitTests" SourceLocation="(Assembly=file:///C:/Users/Student/Desktop/Venci/ConsoleApplication1/KKrastevTasks/PhoneBookUnitTestProject/PhoneBookManipulatorUnitTests.cs StartLineNumber=11 StartCharacterOffset=17 EndLineNumber=11 EndCharacterOffset=46)" UseManualLocation="True" />
+  </Nodes>
+  <Links>
+    <Link Source="(@2 Namespace=PhoneBookUnitTestProject Type=PhoneBookManipulatorUnitTests)" Target="(@1 Namespace=PhoneBookApp Type=PhoneBookManipulator)" Bounds="-9961.20443964826,-9950.87542856201,132.355777867586,91.67542856201" Label="Tests" LabelBounds="-9922.98201103402,-9903.39358867262,26.8166666666675,15.9599999999991" />
+  </Links>
+  <Categories>
+    <Category Id="CodeSchema_Class" Label="Class" BasedOn="CodeSchema_Type" CanBeDataDriven="True" DefaultAction="Node:Both:CodeSchema_Member" Icon="CodeSchema_Class" NavigationActionLabel="Classes" />
+    <Category Id="CodeSchema_Type" Label="Type" CanBeDataDriven="True" DefaultAction="Node:Both:CodeSchema_Member" Icon="CodeSchema_Class" NavigationActionLabel="Types" />
+  </Categories>
+  <Properties>
+    <Property Id="Bounds" DataType="System.Windows.Rect" />
+    <Property Id="CanBeDataDriven" Label="CanBeDataDriven" Description="CanBeDataDriven" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsPublic" Label="Is Public" Description="Flag to indicate the scope is Public" DataType="System.Boolean" />
+    <Property Id="CommonLabel" DataType="System.String" />
+    <Property Id="DefaultAction" Label="DefaultAction" Description="DefaultAction" DataType="System.String" />
+    <Property Id="Icon" Label="Icon" Description="Icon" DataType="System.String" />
+    <Property Id="Label" Label="Label" Description="Displayable label of an Annotatable object" DataType="System.String" />
+    <Property Id="LabelBounds" DataType="System.Windows.Rect" />
+    <Property Id="NavigationActionLabel" Label="NavigationActionLabel" Description="NavigationActionLabel" DataType="System.String" />
+    <Property Id="SourceLocation" Label="Start Line Number" DataType="Microsoft.VisualStudio.GraphModel.CodeSchema.SourceLocation" />
+    <Property Id="UseManualLocation" DataType="System.Boolean" />
+  </Properties>
+  <QualifiedNames>
+    <Name Id="Assembly" Label="Assembly" ValueType="Uri" />
+    <Name Id="Namespace" Label="Namespace" ValueType="System.String" />
+    <Name Id="Type" Label="Type" ValueType="System.Object" />
+  </QualifiedNames>
+  <IdentifierAliases>
+    <Alias n="1" Uri="Assembly=$(aba2c2bc-38d2-48be-897c-85b37c8c857f.OutputPathUri)" />
+    <Alias n="2" Uri="Assembly=$(60968475-7a76-405f-a4af-88c085724adc.OutputPathUri)" />
+  </IdentifierAliases>
+  <Paths>
+    <Path Id="60968475-7a76-405f-a4af-88c085724adc.OutputPathUri" Value="file:///C:/Users/Student/Desktop/Venci/ConsoleApplication1/KKrastevTasks/PhoneBookUnitTestProject/bin/Debug/PhoneBookUnitTestProject.dll" />
+    <Path Id="aba2c2bc-38d2-48be-897c-85b37c8c857f.OutputPathUri" Value="file:///C:/Users/Student/Desktop/Venci/ConsoleApplication1/KKrastevTasks/ConsoleApplication2/bin/Debug/ConsoleApplication2.exe" />
+  </Paths>
+</DirectedGraph>
