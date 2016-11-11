@@ -15,36 +15,26 @@ namespace PhoneBookApp
             switch (commandFound)
             {
                 case SupportedCommands.Add:
-                    if (AddCommandCorrect(extractedCommand))
-                    {
-                        return extractedCommand;
-                    }
-                    else
+                    if (!AddCommandCorrect(extractedCommand))
                     {
                         throw new FormatException($"Invalid {commandFound} passed - check syntax!");
                     }
+                    break;
                 case SupportedCommands.find:
-                    if (FindCommandCorrect(extractedCommand))
-                    {
-                        return extractedCommand;
-                    }
-                    else
+                    if (!FindCommandCorrect(extractedCommand))
                     {
                         throw new FormatException($"Invalid {commandFound} passed - check syntax!");
                     }
                     break;
                 case SupportedCommands.serialize:
-                    if (SerializeCommandCorrect(extractedCommand))
-                    {
-                        return extractedCommand;
-                    }
-                    else
+                    if (!SerializeCommandCorrect(extractedCommand))
                     {
                         throw new FormatException($"Invalid {commandFound} passed - check syntax!");
                     }
                     break;
                 default: throw new ArgumentException($"Unrecognized command passed: {command} ");
             }
+            return extractedCommand;
         }
 
         private static string[] extractCommand(string command)
