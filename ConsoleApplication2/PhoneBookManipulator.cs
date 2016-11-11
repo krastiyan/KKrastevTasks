@@ -16,12 +16,17 @@ namespace PhoneBookApp
 
         public bool ExecuteCommand(string[] command)
         {
-            switch((SupportedCommands)Enum.Parse(typeof(SupportedCommands), command[0]))
+            switch ((SupportedCommands)Enum.Parse(typeof(SupportedCommands), command[0]))
             {
-                case SupportedCommands.Add: return true;
-                case SupportedCommands.find: return true;
-                case SupportedCommands.serialize: return true;
-                default: Console.WriteLine($"Attempt to execute unsupported command {command[0]} !"); return false;
+                case SupportedCommands.Add:
+                    return true;
+                case SupportedCommands.find:
+                    return true;
+                case SupportedCommands.serialize:
+                    return true;
+                default:
+                    Console.WriteLine($"Attempt to execute unsupported command {command[0]} !");
+                    return false;
             }
         }//ExecuteCommand
 
@@ -29,14 +34,14 @@ namespace PhoneBookApp
         {
             List<string[]> commandsSet = ReadCommandsFromFile(fromFilePath);
             List<string> commandsExecutionResults = new List<string>(commandsSet.Count);
-            foreach(string[] command in commandsSet)
+            foreach (string[] command in commandsSet)
             {
                 commandsExecutionResults.Add($"Execution for [{command[0]}] successful = {ExecuteCommand(command)}");
             }
             return null;
         }
 
-        private List<string[]> ReadCommandsFromFile(string fromFilePath)
+        public List<string[]> ReadCommandsFromFile(string fromFilePath)
         {
             string textProcessed;
             FileStream fileStream = new FileStream(@"" + fromFilePath, FileMode.Open, FileAccess.Read);
@@ -45,7 +50,7 @@ namespace PhoneBookApp
                 textProcessed = streamReader.ReadToEnd();
             }
 
-            string[] commandsRead = textProcessed.Split(new string[] { "|"}, StringSplitOptions.RemoveEmptyEntries);
+            string[] commandsRead = textProcessed.Split(new string[] { /*"|",*/ "\r", "\n" }, StringSplitOptions.RemoveEmptyEntries);
 
             List<string[]> result = new List<string[]>(commandsRead.Length);
             foreach (string command in commandsRead)
@@ -55,7 +60,7 @@ namespace PhoneBookApp
 
             return result;
 
-          //TODO: Use below for reading people from file! :)
+            //TODO: Use below for reading people from file! :)
             //if (commandsRead.Length != 3 
             //    || !commandsRead[2].StartsWith("0")
             //    || !commandsRead[2].StartsWith("+")

@@ -12,5 +12,18 @@ namespace PhoneBookApp
         {
 
         }
+
+        private static string RequestConsoleInput()
+        {
+            Console.WriteLine("\n\t\tChoose from following options:"
+                + "\n\t0 - Enter Person's data from console"
+                + "\n\t1 - Print Person's data on console"
+                + "\n\t2 - Enter Person's data from file"
+                + "\n\t3 - Print Person's data into file"
+                + "\n\tquit - Exit program"
+                );
+            return Console.ReadLine();
+        }//RequestConsoleInput
+
     }
 }

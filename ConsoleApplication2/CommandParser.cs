@@ -16,26 +16,31 @@ namespace PhoneBookApp
             {
                 case SupportedCommands.Add:
                     if (AddCommandCorrect(extractedCommand))
-                    { }
+                    {
+                        return extractedCommand;
+                    }
                     else
                     {
-                        throw new FormatException($"Invalid {commandFound} passed - check synytaxis!");
+                        throw new FormatException($"Invalid {commandFound} passed - check syntax!");
                     }
-                    break;
                 case SupportedCommands.find:
                     if (FindCommandCorrect(extractedCommand))
-                    { }
+                    {
+                        return extractedCommand;
+                    }
                     else
                     {
-                        throw new FormatException($"Invalid {commandFound} passed - check synytaxis!");
+                        throw new FormatException($"Invalid {commandFound} passed - check syntax!");
                     }
                     break;
                 case SupportedCommands.serialize:
                     if (SerializeCommandCorrect(extractedCommand))
-                    { }
+                    {
+                        return extractedCommand;
+                    }
                     else
                     {
-                        throw new FormatException($"Invalid {commandFound} passed - check synytaxis!");
+                        throw new FormatException($"Invalid {commandFound} passed - check syntax!");
                     }
                     break;
                 default: throw new ArgumentException($"Unrecognized command passed: {command} ");
