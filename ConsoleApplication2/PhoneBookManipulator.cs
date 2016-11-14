@@ -16,41 +16,53 @@ namespace PhoneBookApp
 
         public bool ExecuteCommand(string[] command)
         {
+            if (command==null || command.Length<1)
+            {
+                throw new ArgumentException("Null or empty command parameter provided to ExecuteCommand(string[])!");
+            }
+            if(command[0] == null || command[0].Length < 1)
+            {
+                throw new ArgumentException($"Null or empty command[0] parameter provided to ExecuteCommand(string[]): command[0]= \"{command[0]}\"!");
+            }
+
             switch ((SupportedCommands)Enum.Parse(typeof(SupportedCommands), command[0]))
             {
                 case SupportedCommands.Add:
-                    return true;
+                    return CommandExecutor.ExecuteAddCommand(command, aPhoneBook);
                 case SupportedCommands.find:
-                    return true;
+                    return CommandExecutor.ExecuteFindCommand(command, aPhoneBook) != null;
                 case SupportedCommands.serialize:
-                    return true;
+                    return CommandExecutor.ExecuteSerializeCommand(command, aPhoneBook);
                 default:
-                    Console.WriteLine($"Attempt to execute unsupported command {command[0]} !");
-                    return false;
+                    throw new ArgumentOutOfRangeException($"Attempt to execute unsupported command: \"{command[0]}\" !");
             }
         }//ExecuteCommand
 
         public string[] ExecuteCommands(string fromFilePath)
         {
+            if (fromFilePath == null || fromFilePath.Length < 1)
+            {
+                throw new ArgumentException($"Null or empty fromFilePath parameter provided to ExecuteCommands(string fromFilePath = \"{fromFilePath}\")!");
+            }
+
             List<string[]> commandsSet = ReadCommandsFromFile(fromFilePath);
             List<string> commandsExecutionResults = new List<string>(commandsSet.Count);
             foreach (string[] command in commandsSet)
             {
                 commandsExecutionResults.Add($"Execution for [{command[0]}] successful = {ExecuteCommand(command)}");
             }
-            return null;
+            return commandsExecutionResults.ToArray<string>();
         }
 
         public List<string[]> ReadCommandsFromFile(string fromFilePath)
         {
-            string textProcessed;
-            FileStream fileStream = new FileStream(@"" + fromFilePath, FileMode.Open, FileAccess.Read);
-            using (var streamReader = new StreamReader(fileStream, Encoding.UTF8))
+            if (fromFilePath == null || fromFilePath.Length < 1)
             {
-                textProcessed = streamReader.ReadToEnd();
+                throw new ArgumentException($"Null or empty fromFilePath parameter provided to ReadCommandsFromFile(string fromFilePath = \"{fromFilePath}\")!");
             }
 
-            string[] commandsRead = textProcessed.Split(new string[] { /*"|",*/ "\r", "\n" }, StringSplitOptions.RemoveEmptyEntries);
+            string textProcessed = ReadFileContent(fromFilePath);
+            string[] commandsRead = textProcessed.Split(PhoneBookParser.FileRowsSplitParameter, StringSplitOptions.RemoveEmptyEntries);
 
             List<string[]> result = new List<string[]>(commandsRead.Length);
             foreach (string command in commandsRead)
@@ -59,39 +71,111 @@ namespace PhoneBookApp
             }
 
             return result;
-
-            //TODO: Use below for reading people from file! :)
-            //if (commandsRead.Length != 3 
-            //    || !commandsRead[2].StartsWith("0")
-            //    || !commandsRead[2].StartsWith("+")
-            //    )
-            //{
-            //    throw new FileLoadException($"Commands in file {fromFilePath} with invalid format: check file again!");
-            //}
-
-            //commandsRead[0] = commandsRead[0].Trim();
-            //commandsRead[1] = commandsRead[1].Trim();
-            //return commandsRead;
         }
 
+        public static string ReadFileContent(string fromFilePath)
+        {
+            if (fromFilePath == null || fromFilePath.Length < 1)
+            {
+                throw new ArgumentException($"Null or empty fromFilePath parameter provided to ReadFileContent(string fromFilePath = \"{fromFilePath}\")!");
+            }
+
+            string textProcessed = null;
+            FileStream fileStream = new FileStream(@"" + fromFilePath, FileMode.Open, FileAccess.Read);
+            using (var streamReader = new StreamReader(fileStream, Encoding.UTF8))
+            {
+                textProcessed = streamReader.ReadToEnd();
+            }
+            return textProcessed;
+        }
+
+        public static bool WriteContentInFile(string content, string toFilePath)
+        {
+            if (content == null || content.Length < 1)
+            {
+                throw new ArgumentException($"Null or empty content parameter provided to WriteContentInFile(string content =\"{content}\", string )!");
+            }
+            if (toFilePath == null || toFilePath.Length < 1)
+            {
+                throw new ArgumentException($"Null or empty toFilePath parameter provided to WriteContentInFile(string content, string toFilePath = \"{toFilePath}\")!");
+            }
+
+            //FileStream fileStream = new FileStream(@"" + toFilePath, FileMode.OpenOrCreate, FileAccess.Write);
+            using (var streamReader = new StreamWriter(@"" + toFilePath, true, Encoding.UTF8))
+            {
+                streamReader.WriteLine(content);
+            }
+            return true;
+        }
+
+        /**
+         * Reads data from given phonebook into the phonebook managed from this manipulator
+         **/
         public List<Person> ReadFromBook(PhoneBook aPhoneBook)
         {
-            throw new NotImplementedException();
+            if (aPhoneBook == null
+                || aPhoneBook.people == null || aPhoneBook.people.Count < 1)
+            {
+                throw new ArgumentException("Null or empty phone book rpovided to ReadFromBook(PhoneBook)!");
+            }
+
+            return aPhoneBook.people;
         }
 
         public List<Person> ReadFromBook(string pathToBookFile)
         {
-            throw new NotImplementedException();
+            if (pathToBookFile == null || pathToBookFile.Length < 1)
+            {
+                throw new ArgumentException($"Null or empty pathToBookFile parameter provided to ReadFromBook(string pathToBookFile =\"{pathToBookFile}\")!");
+            }
+
+            if (pathToBookFile.Equals(this.aPhoneBook.FilePath))
+            {
+                throw new ArgumentException("Duplicating phonebooks not allowed in ReadFromBook()!");
+            }
+            string textProcessed = ReadFileContent(pathToBookFile);
+            string[] personDataRead = textProcessed.Split(PhoneBookParser.FileRowsSplitParameter, StringSplitOptions.RemoveEmptyEntries);
+            List<Person> result = new List<Person>(personDataRead.Length);
+            foreach (string personData in personDataRead)
+            {
+                result.Add(PhoneBookParser.ParsePersonData(personData));
+            }
+            return result;
         }
 
-        public bool WriteInBook(List<Person> dataOfSomeone)
+        public bool WriteInBook(List<Person> dataOfSomePeople)
         {
-            throw new NotImplementedException();
+            if (dataOfSomePeople == null || dataOfSomePeople.Count < 1)
+            {
+                throw new ArgumentException("Null or empty list of personal data provided to WriteInBook(List<Person>)!");
+            }
+
+            if (this.aPhoneBook == null)
+            {
+                this.aPhoneBook = new PhoneBook();
+            }
+            this.aPhoneBook.people=dataOfSomePeople;
+            return true;
         }
 
-        public bool WriteInBook(List<Person> dataOfSomeone, string pathToBookFile)
+        public bool WriteInBook(List<Person> dataOfSomePeople, string pathToPhoneBookFile)
         {
-            throw new NotImplementedException();
+            if (dataOfSomePeople == null || dataOfSomePeople.Count < 1)
+            {
+                throw new ArgumentException("Null or empty list of personal data provided to WriteInBook(List<Person>, string)!");
+            }
+            if (pathToPhoneBookFile == null || pathToPhoneBookFile.Length < 1)
+            {
+                throw new ArgumentException($"Null or empty pathToPhoneBookFile parameter provided to WriteInBook(List<Person>, string pathToPhoneBookFile =\"{pathToPhoneBookFile}\")!");
+            }
+
+            StringBuilder fileContent = new StringBuilder(dataOfSomePeople.Count);
+            foreach (Person someone in dataOfSomePeople)
+            {
+                fileContent.Append(PhoneBookParser.ParsePersonDataToPhoneBookFileRow(someone) + "\n");
+            }
+            return WriteContentInFile(fileContent.ToString(), pathToPhoneBookFile);
         }
+
     }
 }

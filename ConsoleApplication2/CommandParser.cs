@@ -15,19 +15,19 @@ namespace PhoneBookApp
             switch (commandFound)
             {
                 case SupportedCommands.Add:
-                    if (!AddCommandCorrect(extractedCommand))
+                    if (!isAddCommandCorrect(extractedCommand))
                     {
                         throw new FormatException($"Invalid {commandFound} passed - check syntax!");
                     }
                     break;
                 case SupportedCommands.find:
-                    if (!FindCommandCorrect(extractedCommand))
+                    if (!isFindCommandCorrect(extractedCommand))
                     {
                         throw new FormatException($"Invalid {commandFound} passed - check syntax!");
                     }
                     break;
                 case SupportedCommands.serialize:
-                    if (!SerializeCommandCorrect(extractedCommand))
+                    if (!isSerializeCommandCorrect(extractedCommand))
                     {
                         throw new FormatException($"Invalid {commandFound} passed - check syntax!");
                     }
@@ -42,19 +42,19 @@ namespace PhoneBookApp
             return command.Split(new string[] { "(", ")", ",", "\"", ";"}, StringSplitOptions.RemoveEmptyEntries);
         }
 
-        public static bool AddCommandCorrect(string[] command)
+        public static bool isAddCommandCorrect(string[] command)
         {
             int commandLength = (command[command.Length - 1].StartsWith("//")) ? command.Length - 1 : command.Length;
             return (commandLength == 4 || commandLength == 5);
         }
 
-        public static bool FindCommandCorrect(string[] command)
+        public static bool isFindCommandCorrect(string[] command)
         {
             int commandLength = (command[command.Length - 1].StartsWith("//")) ? command.Length - 1 : command.Length;
             return ((commandLength == 2 || commandLength == 3) && (command[commandLength - 1].Contains('/') || command[commandLength - 1].Contains('\\')));
         }
 
-        public static bool SerializeCommandCorrect(string[] command)
+        public static bool isSerializeCommandCorrect(string[] command)
         {
             int commandLength = (command[command.Length - 1].StartsWith("//")) ? command.Length - 1 : command.Length;
             return (commandLength == 4 && (command[commandLength-1].Equals("XML") || command[commandLength - 1].Equals("JSON")));
